@@ -1,0 +1,7 @@
+:root {
+    --primary-color: #3700B3;  /* The blue color from your header */
+    --secondary-color: #00BFA6;  /* The teal color used for buttons */
+    --background-color: #F0F2F5;  /* The light gray background */
+    --text-color: #333;
+    --white: #FFFFFF;
+  }

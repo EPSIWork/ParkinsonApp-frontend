@@ -1,0 +1,117 @@
+.home {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.hero-section {
+    /* Hero section styles */
+}
+
+.stats-section {
+    display: flex;
+    justify-content: space-between;
+    margin: 4rem 0;
+    text-align: center;
+}
+
+.stat-item h2 {
+    font-size: 2.5rem;
+    color: #00BFA6;
+}
+
+.greatest-section {
+    text-align: center;
+    margin: 4rem 0;
+}
+
+.service-cards {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+}
+
+.service-card {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.adopt-healthy-section, .consultation-section {
+    display: flex;
+    align-items: center;
+    margin: 4rem 0;
+}
+
+.content {
+    flex: 1;
+}
+
+.image-placeholder {
+    flex: 1;
+    height: 300px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+}
+
+.specialists-section, .doctors-section {
+    margin: 4rem 0;
+}
+
+.specialists-section ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.specialists-section li::before {
+    content: "✓";
+    color: #00BFA6;
+    margin-right: 10px;
+}
+
+.doctor-cards {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+}
+
+.free-consultation-section {
+    background-color: #333;
+    color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    margin: 4rem 0;
+}
+
+.free-consultation-section form {
+    display: flex;
+    margin-top: 1rem;
+}
+
+.free-consultation-section input {
+    flex: 1;
+    padding: 0.5rem;
+    border: none;
+    border-radius: 5px 0 0 5px;
+}
+
+.free-consultation-section button {
+    padding: 0.5rem 1rem;
+    background-color: #00BFA6;
+    color: white;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+}
+
+/* Add responsive design for smaller screens */
+@media (max-width: 768px) {
+    .stats-section, .service-cards, .adopt-healthy-section, .consultation-section, .doctor-cards {
+        flex-direction: column;
+    }
+
+    .image-placeholder {
+        margin-top: 2rem;
+    }
+}

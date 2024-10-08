@@ -1,0 +1,62 @@
+.footer {
+    background-color: #E6F4F1;
+    color: #333;
+    padding: 2rem 4rem;
+    font-size: 0.9rem;
+    position: relative;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-section {
+    flex: 1;
+    margin-right: 2rem;
+}
+
+.footer-section h3 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: #00BFA6;
+}
+
+.footer-section a {
+    display: block;
+    color: #333;
+    text-decoration: none;
+    margin-bottom: 0.5rem;
+}
+
+.footer-section p {
+    margin: 0.5rem 0;
+}
+
+.chat-button {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background-color: #00BFA6;
+    color: white;
+    padding: 0.5rem 1.5rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+    }
+
+    .footer-section {
+        margin-right: 0;
+        margin-bottom: 2rem;
+    }
+}
+
