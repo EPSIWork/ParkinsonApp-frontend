@@ -1,6 +1,7 @@
 import React from 'react';
 import './Home.css';
-
+import healthycaremedical from '../../assets/HealthyCare&Medical.jpg';
+import healthEpsi from '../../assets/project_health_epsi .jpeg'
 const Home: React.FC = () => {
     return (
         <div className="home">
@@ -28,11 +29,10 @@ const Home: React.FC = () => {
                 <p>Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.</p>
                 <div className="service-cards">
                     <div className="service-card">
-                        <img src="/path-to-icon" alt="Healthy Life" />
-                        <h3>Healthy Life</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        <div className="service-card-image">
+                            <img src={healthEpsi} alt="Healthy Life" />
+                        </div>
                     </div>
-                    {/* Repeat for other service cards */}
                 </div>
             </section>
 
@@ -41,7 +41,9 @@ const Home: React.FC = () => {
                     <h2>Adopt A Healthy Lifestyle To Help You Live In Old Age</h2>
                     <p>Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.</p>
                 </div>
-                <div className="image-placeholder"></div>
+                <div className="image-placeholder">
+                    <img src={healthycaremedical} alt="Health Epsi" />
+                </div>
             </section>
 
             <section className="specialists-section">
@@ -68,7 +70,10 @@ const Home: React.FC = () => {
                     <p>Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit.</p>
                     <button>Make The Schedule</button>
                 </div>
-                <div className="image-placeholder"></div>
+                <div className="image-placeholder">
+                    <img src={healthEpsi} alt="Health Epsi" />
+                </div>
+
             </section>
 
             <section className="free-consultation-section">
