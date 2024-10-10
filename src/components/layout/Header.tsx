@@ -2,10 +2,14 @@ import React from 'react'
 import './Header.css';
 import logo from '../../assets/logo.jpeg'; // Make sure this path is correct
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../../context/AuthContext';
+
 
 
 const Header: React.FC = () => {
     const navigate = useNavigate();
+
+    const { isAuthenticated, logoutToken } = useAuth();  // Destructure isAuthenticated and logoutToken
 
     const handleLogin = () => {
         navigate('/login');
@@ -14,6 +18,12 @@ const Header: React.FC = () => {
     const handleSignup = () => {
         navigate('/signup');
     }
+
+    const handleLogOut = () => {
+        logoutToken()
+        navigate('/')
+    }
+
 
     return (
       <header className="header">
@@ -32,8 +42,14 @@ const Header: React.FC = () => {
           </ul>
         </nav>
         <div className="auth-buttons">
-          <button className="login-btn" onClick={handleLogin}>CONNEXION</button>
-          <button className="signup-btn" onClick={handleSignup}>S'INSCRIRE</button>
+          {isAuthenticated ? (
+            <button className="logout-btn" onClick={handleLogOut}>DÉCONNEXION</button>) :
+          (
+            <>
+              <button className="login-btn" onClick={handleLogin}>CONNEXION</button>
+              <button className="signup-btn" onClick={handleSignup}>S'INSCRIRE</button>
+            </>
+          )}
         </div>
         <button className="search-btn">🔍</button>
       </header>

@@ -10,6 +10,9 @@ const Member : React.FC = () => {
     const [error, setError] = useState<string | null>(null);
     const [email, setEmail] = useState<string>('');
 
+
+    // cal api to check if user has a family member
+
     useEffect(() => {
         const checkMemberStatus = async () => {
             try {

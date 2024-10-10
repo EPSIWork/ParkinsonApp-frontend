@@ -12,27 +12,30 @@ import Footer from './components/layout/Footer';
 import Traitements from './pages/Traitement/Traitement';
 import Member from './pages/Member/Member';
 import MedicalRecall from './pages/MedicalRecall/MedicalRecall';
+import { AuthProvider } from 'context/AuthContext';
 
 function App() {
   return (
-    <BrowserRouter>
-      <div className="App">
-        <Header />
-        <div className="content">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/signup" element={<SignUp />} />
-            <Route path="/forgot-password" element={<ForgotPassword />} />
-            <Route path="/traitements" element={<Traitements />} />
-            <Route path="/member" element={<Member />} />
-            <Route path="/medication-recall" element={<MedicalRecall />} />
-          </Routes>
-          <Chatbox />
+    <AuthProvider>
+      <BrowserRouter>
+        <div className="App">
+          <Header />
+          <div className="content">   
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/signup" element={<SignUp />} />
+              <Route path="/forgot-password" element={<ForgotPassword />} />
+              <Route path="/traitements" element={<Traitements />} />
+              <Route path="/member" element={<Member />} />
+              <Route path="/medication-recall" element={<MedicalRecall />} />
+            </Routes>
+            <Chatbox />
+          </div>
+          <Footer />
         </div>
-        <Footer />
-      </div>
-    </BrowserRouter>
+      </BrowserRouter>
+    </AuthProvider>
   );
 }
 

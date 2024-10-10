@@ -1,22 +1,36 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './SignUp.css'; // We'll create this file for styling
+import { signup } from '../../api';
 
 const SignUp: React.FC = () => {
-    const [prenom, setPrenom] = useState('');
-    const [nom, setNom] = useState('');
+    const [firstName, setFirstName] = useState('');
+    const [phoneNo, setPhoneNo] = useState('');
+    const [lastName, setLastName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
+    const [error, setError] = useState<string | null>(null);
     const navigate = useNavigate();
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         if (password !== confirmPassword) {
-            alert("Les mots de passe ne correspondent pas !");
+            setError("Les mots de passe ne correspondent pas !");
             return;
         }
-        console.log('Tentative d\'inscription avec :', { prenom, nom, email, password });
+        try {
+            const response = await signup({ firstName, lastName, email, phoneNo, password, confirmPassword });
+            console.log('Signup successful:', response);
+            // Handle successful signup (e.g., save token, redirect)
+            navigate('/login'); // Redirect to login page after successful signup
+        } catch (error) {
+            if (error instanceof Error) {
+                setError(error.message);
+            } else {
+                setError('An unexpected error occurred');
+            }
+        }
     };
 
     return (
@@ -28,8 +42,8 @@ const SignUp: React.FC = () => {
                     <input
                         type="text"
                         id="prenom"
-                        value={prenom}
-                        onChange={(e) => setPrenom(e.target.value)}
+                        value={firstName}
+                        onChange={(e) => setFirstName(e.target.value)}
                         required
                     />
                 </div>
@@ -38,8 +52,8 @@ const SignUp: React.FC = () => {
                     <input
                         type="text"
                         id="nom"
-                        value={nom}
-                        onChange={(e) => setNom(e.target.value)}
+                        value={lastName}
+                        onChange={(e) => setLastName(e.target.value)}
                         required
                     />
                 </div>
@@ -50,6 +64,16 @@ const SignUp: React.FC = () => {
                         id="email"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
+                        required
+                    />
+                </div>
+                <div className="form-group">
+                    <label htmlFor="phoneNo">Numéro de téléphone</label>
+                    <input
+                        type="tel"
+                        id="phoneNo"
+                        value={phoneNo}
+                        onChange={(e) => setPhoneNo(e.target.value)}
                         required
                     />
                 </div>
@@ -73,6 +97,7 @@ const SignUp: React.FC = () => {
                         required
                     />
                 </div>
+                {error && <p className="error-message">{error}</p>}
                 <button type="submit" className="signup-button">S'inscrire</button>
                 <div className="form-footer">
                     Vous avez déjà un compte ? <a href="#" onClick={() => navigate('/login')}>Connectez-vous</a>
