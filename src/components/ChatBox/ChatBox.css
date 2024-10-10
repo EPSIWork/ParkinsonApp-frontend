@@ -41,6 +41,11 @@
 }
 
 .chatbox-messages {
+    max-height: 300px; /* Définissez une hauteur maximale pour la zone de messages */
+    overflow-y: auto;  /* Activez le défilement vertical */
+    padding: 10px;     /* Ajoutez un peu de padding pour l'esthétique */
+    border: 1px solid #ccc; /* Optionnel : ajoutez une bordure pour délimiter la zone */
+    background-color: #f9f9f9;
     flex: 1;
     padding: 10px;
     overflow-y: auto;
