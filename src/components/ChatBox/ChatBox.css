@@ -76,3 +76,13 @@
     padding: 8px 16px;
     cursor: pointer;
 }
+
+.chatbox-message.user {
+    background-color: #e0f7fa;
+    text-align: right;
+}
+
+.chatbox-message.api {
+    background-color: #f1f8e9;
+    text-align: left;
+}
