@@ -25,7 +25,7 @@
     position: absolute;
     top: -40px;
     right: 0;
-    background-color:  var(--secondary-color);
+    background-color: var(--secondary-color);
     color: white;
     border: none;
     border-radius: 8px 8px 0 0;
@@ -43,7 +43,8 @@
 .chatbox-messages {
     flex: 1;
     padding: 10px;
-    overflow-y: auto;
+    overflow-y: auto; /* Enable vertical scrolling */
+    max-height: 300px; /* Set a max height for scrolling */
 }
 
 .chatbox-message {
@@ -69,7 +70,7 @@
 }
 
 .chatbox-input button {
-    background-color:  var(--secondary-color);
+    background-color: var(--secondary-color);
     color: white;
     border: none;
     border-radius: 4px;
