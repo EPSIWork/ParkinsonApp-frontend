@@ -1,15 +1,17 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './SignUp.css'; // We'll create this file for styling
+import './SignUp.css';
 import { signup } from '../../api';
 
 const SignUp: React.FC = () => {
     const [firstName, setFirstName] = useState('');
-    const [phoneNo, setPhoneNo] = useState('');
     const [lastName, setLastName] = useState('');
     const [email, setEmail] = useState('');
+    const [phoneNo, setPhoneNo] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
+    const [role, setRole] = useState<'patient' | 'aide-soignant'>('patient');
+    const [address, setAddress] = useState('');
     const [error, setError] = useState<string | null>(null);
     const navigate = useNavigate();
 
@@ -20,10 +22,9 @@ const SignUp: React.FC = () => {
             return;
         }
         try {
-            const response = await signup({ firstName, lastName, email, phoneNo, password, confirmPassword });
+            const response = await signup({ firstName, lastName, email, phoneNo, password,confirmPassword, role, address });
             console.log('Signup successful:', response);
-            // Handle successful signup (e.g., save token, redirect)
-            navigate('/login'); // Redirect to login page after successful signup
+            navigate('/login');
         } catch (error) {
             if (error instanceof Error) {
                 setError(error.message);
@@ -76,6 +77,39 @@ const SignUp: React.FC = () => {
                         onChange={(e) => setPhoneNo(e.target.value)}
                         required
                     />
+                </div>
+                <div className="form-group">
+                    <label htmlFor="adresse">Adresse</label>
+                    <input
+                        type="text"
+                        id="adresse"
+                        value={address}
+                        onChange={(e) => setAddress(e.target.value)}
+                        required
+                    />
+                </div>
+                <div className="form-group">
+                    <label>Rôle</label>
+                    <div>
+                        <label>
+                            <input
+                                type="radio"
+                                value="patient"
+                                checked={role === 'patient'}
+                                onChange={() => setRole('patient')}
+                            />
+                            Patient
+                        </label>
+                        <label>
+                            <input
+                                type="radio"
+                                value="aide-soignant"
+                                checked={role === 'aide-soignant'}
+                                onChange={() => setRole('aide-soignant')}
+                            />
+                            Aide-soignant
+                        </label>
+                    </div>
                 </div>
                 <div className="form-group">
                     <label htmlFor="password">Mot de passe</label>
