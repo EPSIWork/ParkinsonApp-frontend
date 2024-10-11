@@ -1,8 +1,8 @@
 import axios from "axios";
 
 // Define the base URL for your API
-export const API_BASE_URL = "https://c2b0-141-255-162-201.ngrok-free.app";
-const OPEN_CHAT = "https://c20e-141-255-162-201.ngrok-free.app";
+export const API_BASE_URL = "https://parkinsonia-api.nickfal.com";
+const OPEN_CHAT = "https://parkinsonia-gptbot.nickfal.com";
 // Define the interface for the login data
 interface LoginData {
   email: string;
