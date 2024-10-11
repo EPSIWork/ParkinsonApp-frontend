@@ -6,7 +6,7 @@ const About: React.FC = () => {
     <div className="about-container">
       <h1>À propos de notre plateforme</h1>
       <p>
-        Bienvenue sur <strong>[Nom du site]</strong>, une plateforme dédiée à améliorer la vie des personnes atteintes de la maladie de Parkinson ainsi que celle de leurs proches. Notre mission est de proposer des solutions innovantes et accessibles pour accompagner les patients dans leur quotidien et leur offrir un suivi personnalisé, quel que soit le stade de progression de leur maladie.
+        Bienvenue sur <strong>Parkionsia</strong>, une plateforme dédiée à améliorer la vie des personnes atteintes de la maladie de Parkinson ainsi que celle de leurs proches. Notre mission est de proposer des solutions innovantes et accessibles pour accompagner les patients dans leur quotidien et leur offrir un suivi personnalisé, quel que soit le stade de progression de leur maladie.
       </p>
       <ul>
         <li>
