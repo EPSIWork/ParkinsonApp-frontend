@@ -16,6 +16,8 @@ interface SignupData {
   phoneNo: string;
   password: string;
   confirmPassword: string;
+  role: "patient" | "aide-soignant";
+  address: string;
 }
 
 export const api = axios.create({

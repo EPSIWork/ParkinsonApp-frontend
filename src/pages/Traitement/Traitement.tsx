@@ -137,6 +137,7 @@ const styles: { [key: string]: React.CSSProperties } = {
   container: {
     textAlign: 'center',
     padding: '50px',
+    backgroundColor: 'white',
   },
   button: {
     padding: '20px',
@@ -156,9 +157,11 @@ const styles: { [key: string]: React.CSSProperties } = {
   },
   input: {
     padding: '10px',
+    backgroundColor: 'blue',
     fontSize: '16px',
     width: '80%',
     margin: '20px 0',
+    color: 'white',
   },
   suggestions: {
     fontSize: '18px',
