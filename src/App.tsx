@@ -13,6 +13,7 @@ import Member from './pages/Member/Member';
 import MedicalRecall from './pages/MedicalRecall/MedicalRecall';
 import { AuthProvider } from 'context/AuthContext';
 import TypingTest from './pages/Traitement/Traitement';
+import About from 'pages/About/About';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<SignUp />} />
               <Route path="/forgot-password" element={<ForgotPassword />} />
+              <Route path="/a-propos" element={<About />} />
               <Route path="/test-de-frappe" element={<TypingTest />} />
               <Route path="/member" element={<Member />} />
               <Route path="/medication-recall" element={<MedicalRecall />} />

@@ -8,6 +8,17 @@ const Home: React.FC = () => {
             <section className="hero-section">
                 {/* Hero content goes here */}
             </section>
+            <section className="greatest-section">
+                <div className="service-cards">
+                    <div className="service-card">
+                        <div className="service-card-image">
+                            <img src={healthEpsi} alt="Healthy Life" />
+                        </div>
+                    </div>
+                </div>
+                <h2>We Are The Greatest</h2>
+                <p>Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.</p>
+            </section>
 
             <section className="stats-section">
                 <div className="stat-item">
@@ -21,18 +32,6 @@ const Home: React.FC = () => {
                 <div className="stat-item">
                     <h2>10.000+</h2>
                     <p>Customers Are Satisfied With Us</p>
-                </div>
-            </section>
-
-            <section className="greatest-section">
-                <h2>We Are The Greatest</h2>
-                <p>Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.</p>
-                <div className="service-cards">
-                    <div className="service-card">
-                        <div className="service-card-image">
-                            <img src={healthEpsi} alt="Healthy Life" />
-                        </div>
-                    </div>
                 </div>
             </section>
 
