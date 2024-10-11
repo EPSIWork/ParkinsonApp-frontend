@@ -1,7 +1,7 @@
 import axios from "axios";
 
 // Define the base URL for your API
-const API_BASE_URL = "https://e17f-141-255-162-201.ngrok-free.app";
+export const API_BASE_URL = "https://c2b0-141-255-162-201.ngrok-free.app";
 const OPEN_CHAT = "https://c20e-141-255-162-201.ngrok-free.app";
 // Define the interface for the login data
 interface LoginData {
@@ -18,7 +18,7 @@ interface SignupData {
   confirmPassword: string;
 }
 
-const api = axios.create({
+export const api = axios.create({
   baseURL: API_BASE_URL,
 });
 
@@ -65,6 +65,8 @@ export const login = async (loginData: LoginData) => {
     throw error;
   }
 };
+
+// add a new member to family
 
 export const chatopen = async (message: string) => {
   try {

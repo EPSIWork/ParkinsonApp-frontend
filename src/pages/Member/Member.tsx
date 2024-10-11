@@ -1,23 +1,20 @@
 import React, { useEffect, useState } from 'react';
 import './Member.css';
+import { api } from 'api';
 import axios from 'axios';
 
-
-const Member : React.FC = () => {
-
-    const [hasMember, setHasMember] = useState<boolean | null>(null);
+const Member: React.FC = () => {
     const [isLoading, setIsLoading] = useState<boolean>(true);
     const [error, setError] = useState<string | null>(null);
     const [email, setEmail] = useState<string>('');
-
-
-    // cal api to check if user has a family member
+    const [familyMembers, setFamilyMembers] = useState<string[]>([]);
 
     useEffect(() => {
-        const checkMemberStatus = async () => {
+        const fetchMemberStatus = async () => {
             try {
-                const response = await axios.get('/api/member');
-                setHasMember(response.data.hasMember);
+                const response = await api.get('/api/familyMember');
+                const emails = response.data.data.map((member: any) => member.email);
+                setFamilyMembers(emails);
             } catch (err) {
                 setError('Failed to fetch member status');
                 console.error('Error fetching member status:', err);
@@ -26,59 +23,70 @@ const Member : React.FC = () => {
             }
         };
 
-        checkMemberStatus();
+        fetchMemberStatus();
     }, []);
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         try {
-            await axios.post('/api/addMember', { email });
-            setHasMember(true);
+            await api.post('/api/familyMember', { email });
+            setFamilyMembers((prevMembers) => [...prevMembers, email]);
             setEmail('');
         } catch (error) {
-            if (error instanceof Error) {
-                setError(error.message);
+            if (axios.isAxiosError(error)) {
+                setError(error.response?.data?.message || 'Failed to add member');
             } else {
                 setError('Failed to add member');
             }
         }
     };
 
-    const formAddMember = () => (
-        <div>
-        <p>Vous n'êtes pas membre des Proches</p>
-        <form onSubmit={handleSubmit} className="member-form">
-            <label htmlFor="email">Email du membre :</label>
-            <input
-                type="email"
-                id="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-            />
-            <button type="submit">Ajouter un membre</button>
-        </form>
-    </div>
-    );
-
-
     return (
         <div className="member-container">
             <h1>Membre des Proches</h1>
+            <div>
+                <h2>Ajouter un membre</h2>
+                <form onSubmit={handleSubmit} className="member-form">
+                    <label htmlFor="email">Email du membre :</label>
+                    <input
+                        type="email"
+                        id="email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        required
+                    />
+                    <button type="submit">Ajouter un membre</button>
+                </form>
+            </div>
             {isLoading ? (
                 <p>Chargement...</p>
             ) : error ? (
                 <p>Erreur: {error}</p>
             ) : (
-                <p>
-                    {hasMember
-                        ? "Vous êtes membre des Proches"
-                        : formAddMember()}
-                </p>
+                <div>
+                    <h2>Membres de la famille</h2>
+                    {familyMembers.length > 0 ? (
+                        <table className="member-table">
+                            <thead>
+                                <tr>
+                                    <th>Email</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {familyMembers.map((memberEmail, index) => (
+                                    <tr key={index}>
+                                        <td>{memberEmail}</td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    ) : (
+                        <p>Aucun membre de la famille ajouté.</p>
+                    )}
+                </div>
             )}
         </div>
-    )
-
-}
+    );
+};
 
 export default Member;
