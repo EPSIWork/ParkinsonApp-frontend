@@ -1,0 +1,68 @@
+.experts {
+    text-align: center;
+    padding: 40px;
+    background-color: #f9f9f9;
+}
+
+.experts h3 {
+    color: #00bfa5;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.experts h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.experts p {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 40px;
+}
+
+.doctor-cards {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.doctor-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 200px;
+    margin: 10px;
+    overflow: hidden;
+    text-align: center;
+}
+
+.doctor-card img {
+    width: 100%;
+    height: auto;
+}
+
+.doctor-info {
+    padding: 15px;
+}
+
+.doctor-info h4 {
+    font-size: 1.2rem;
+    margin: 10px 0;
+}
+
+.doctor-info p {
+    color: #00bfa5;
+    margin-bottom: 10px;
+}
+
+.contact-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contact-icons i {
+    margin: 0 5px;
+    color: #00bfa5;
+}

@@ -1,0 +1,56 @@
+.clinic-specialization {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 40px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.image-container img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.content-container {
+    max-width: 50%;
+    padding: 20px;
+}
+
+.content-container h4 {
+    color: #00bfa5;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.content-container h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.content-container p {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #00bfa5;
+    color: #fff;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+.button:hover {
+    background-color: #008f7a;
+}
+
+.button i {
+    margin-right: 5px;
+}
