@@ -9,10 +9,10 @@ import './styles/globals.css';
 import ForgotPassword from './pages/ForgotPassword/ForgotPassword';
 import Chatbox from './components/ChatBox/ChatBox';
 import Footer from './components/layout/Footer';
-import Traitements from './pages/Traitement/Traitement';
 import Member from './pages/Member/Member';
 import MedicalRecall from './pages/MedicalRecall/MedicalRecall';
 import { AuthProvider } from 'context/AuthContext';
+import TypingTest from './pages/Traitement/Traitement';
 
 function App() {
   return (
@@ -26,7 +26,7 @@ function App() {
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<SignUp />} />
               <Route path="/forgot-password" element={<ForgotPassword />} />
-              <Route path="/traitements" element={<Traitements />} />
+              <Route path="/test-de-frappe" element={<TypingTest />} />
               <Route path="/member" element={<Member />} />
               <Route path="/medication-recall" element={<MedicalRecall />} />
             </Routes>

@@ -29,15 +29,14 @@ const Header: React.FC = () => {
       <header className="header">
         <div className="logo-container">
           <img src={logo} alt="Logo Mico" className="logo" />
-          <span className="logo-text">Mico</span>
+          <span className="logo-text">Parkisonia</span>
         </div>
         <nav className="main-nav">
           <ul>
             <li><a href="/">ACCUEIL</a></li>
             <li><a href="/a-propos">À PROPOS</a></li>
-            <li><a href="/traitements">TRAITEMENTS</a></li>
+            <li><a href="/test-de-frappe">TEST DE FRAPPE</a></li>
             <li><a href="/member">MEMBRE</a></li>
-            <li><a href="/temoignages">TÉMOIGNAGES</a></li>
             <li><a href="/medication-recall">RAPPEL-MEDICAMENT</a></li>
           </ul>
         </nav>
