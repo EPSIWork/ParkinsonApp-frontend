@@ -38,6 +38,7 @@ const Header: React.FC = () => {
             <li><a href="/test-de-frappe">TEST DE FRAPPE</a></li>
             <li><a href="/member">MEMBRE</a></li>
             <li><a href="/medication-recall">RAPPEL-MEDICAMENT</a></li>
+            <li><a href="/geolocalisation">GEOLOCALISATION</a></li>
           </ul>
         </nav>
         <div className="auth-buttons">

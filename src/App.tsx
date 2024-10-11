@@ -14,6 +14,7 @@ import MedicalRecall from './pages/MedicalRecall/MedicalRecall';
 import { AuthProvider } from 'context/AuthContext';
 import TypingTest from './pages/Traitement/Traitement';
 import About from 'pages/About/About';
+import Geolocalisation from 'pages/Geolocalisation/Geolocalisation';
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
               <Route path="/test-de-frappe" element={<TypingTest />} />
               <Route path="/member" element={<Member />} />
               <Route path="/medication-recall" element={<MedicalRecall />} />
+              <Route path="/geolocalisation" element={<Geolocalisation />} />
             </Routes>
             <Chatbox />
           </div>
