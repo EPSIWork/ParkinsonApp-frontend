@@ -33,15 +33,15 @@ const TypingTest: React.FC = () => {
   }, [startTime, userInput, targetText]);
 
   const generateSuggestions = useCallback((speed: number, accuracy: number) => {
-    let suggestion = 'Great effort! Keep practicing at your own pace.';
+    let suggestion = 'Bon effort ! Continuez à pratiquer à votre rythme.';
     if (speed < 20) {
-      suggestion = 'Take your time. Focus on steady typing.';
+      suggestion = 'Prenez votre temps. Concentrez-vous sur une frappe régulière.';
     }
     if (accuracy < 70) {
-      suggestion = 'Accuracy is key. Try to type each word carefully.';
+      suggestion = 'La précision est essentielle. Essayez de taper chaque mot avec soin.';
     }
     if (speed < 20 && accuracy < 70) {
-      suggestion = 'Remember, it’s about progress, not perfection. Keep going!';
+      suggestion = 'Rappelez-vous, il s’agit de progrès, pas de perfection. Continuez !';
     }
     setSuggestions(suggestion);
   }, []);
@@ -52,7 +52,7 @@ const TypingTest: React.FC = () => {
       const { speed, accuracy, time } = calculateResults();
       setResults((prevResults) => [...prevResults, { time, speed, accuracy }]);
       generateSuggestions(speed, accuracy);
-      console.log(`Test completed: ${keystrokes} keystrokes, Speed: ${speed.toFixed(2)} WPM, Accuracy: ${accuracy.toFixed(2)}%`);
+      console.log(`Test terminé : ${keystrokes} frappes, Vitesse : ${speed.toFixed(2)} MPM, Précision : ${accuracy.toFixed(2)}%`);
     }
   }, [isRunning, keystrokes, calculateResults, generateSuggestions]);
 
@@ -70,7 +70,7 @@ const TypingTest: React.FC = () => {
 
   const generateRandomText = (): string => {
     const texts = [
-      'A journey of a thousand miles begins with a single step.',
+      'Un voyage de mille lieues commence par un seul pas.',
     ];
     return texts[Math.floor(Math.random() * texts.length)];
   };
@@ -92,14 +92,12 @@ const TypingTest: React.FC = () => {
     }
   };
 
-
-
   return (
     <div style={styles.container}>
-      <h1>Typing Test</h1>
-      <p>Time Left: {timeLeft}s</p>
-      <p>Total Keystrokes: {keystrokes}</p>
-      <p>Target Text: {targetText}</p>
+      <h1>Test de dactylographie</h1>
+      <p>Temps restant : {timeLeft}s</p>
+      <p>Total des frappes : {keystrokes}</p>
+      <p>Texte cible : {targetText}</p>
       <input
         type="text"
         value={userInput}
@@ -109,11 +107,11 @@ const TypingTest: React.FC = () => {
       />
       {!isRunning ? (
         <button onClick={startTest} style={styles.button}>
-          Start Test
+          Commencer le test
         </button>
       ) : (
         <button onClick={endTest} style={styles.endButton}>
-          End Test
+          Terminer le test
         </button>
       )}
       <p style={styles.suggestions}>{suggestions}</p>
@@ -124,12 +122,12 @@ const TypingTest: React.FC = () => {
         margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
       >
         <CartesianGrid strokeDasharray="3 3" />
-        <XAxis dataKey="time" label={{ value: 'Time (s)', position: 'insideBottomRight', offset: 0 }} />
+        <XAxis dataKey="time" label={{ value: 'Temps (s)', position: 'insideBottomRight', offset: 0 }} />
         <YAxis />
         <Tooltip />
         <Legend />
-        <Line type="monotone" dataKey="speed" stroke="blue" name="Speed (WPM)" />
-        <Line type="monotone" dataKey="accuracy" stroke="red" name="Accuracy (%)" />
+        <Line type="monotone" dataKey="speed" stroke="blue" name="Vitesse (MPM)" />
+        <Line type="monotone" dataKey="accuracy" stroke="red" name="Précision (%)" />
       </LineChart>
     </div>
   );
@@ -170,55 +168,3 @@ const styles: { [key: string]: React.CSSProperties } = {
 };
 
 export default TypingTest;
-
-// import React from 'react';
-// import { useNavigate } from 'react-router-dom';
-// import { Bar } from 'react-chartjs-2';
-// import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from 'chart.js';
-// import './Traitement.css';
-
-// ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
-
-// const Traitements: React.FC = () => {
-//     const navigate = useNavigate();
-// // 
-//     const chartData = {
-//         labels: ['January', 'February', 'March', 'April', 'May', 'June'],
-//         datasets: [
-//             {
-//                 label: 'Treatment Progress',
-//                 data: [12, 19, 3, 5, 2, 3],
-//                 backgroundColor: 'rgba(75, 192, 192, 0.6)',
-//                 borderColor: 'rgba(75, 192, 192, 1)',
-//                 borderWidth: 1,
-//             },
-//         ],
-//     };
-
-//     const chartOptions = {
-//         responsive: true,
-//         plugins: {
-//             legend: {
-//                 position: 'top' as const,
-//             },
-//             title: {
-//                 display: true,
-//                 text: 'Treatment Progress Over Time',
-//             },
-//         },
-//     };
-
-//     return (
-//         <div className="traitements-container">
-//             <h1>Traitements</h1>
-//             <button className="redirect-button" onClick={() => navigate('/details-traitement')}>
-//                 Voir les détails du traitement
-//             </button>
-//             <div className="chart-container">
-//                 <Bar data={chartData} options={chartOptions} />
-//             </div>
-//         </div>
-//     );
-// }
-
-// export default Traitements;
